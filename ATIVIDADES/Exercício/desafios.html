@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trajetória & Desafios HTML/CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Menu de Navegação -->
+  <nav class="menu-navegacao">
+    <a href="index.html">Perfil</a>
+    <a href="desafios.html" class="ativo">Trajetória & Desafios</a>
+  </nav>
+
+  <main class="conteiner-desafios">
+    <h1>🚀 Sua Jornada no Desenvolvimento Web</h1>
+    <p class="subtitulo">Acompanhe a trajetória das tags e propriedades que você aprendeu e aceite os desafios para aprofundar seus conhecimentos.</p>
+
+    <!-- Linha do Tempo / Trajetória -->
+    <section class="secao-trajetoria">
+      <h2>🗺️ Trajetória dos Comandos Aprendidos</h2>
+
+      <div class="etapa-trajetoria">
+        <span class="passo">Passo 1</span>
+        <h3>Estruturação (HTML5)</h3>
+        <p>Aprendemos a criar o "esqueleto" do site organizando o conteúdo com tags semânticas e hierárquicas:</p>
+        <ul>
+          <li><code>&lt;main&gt;</code>: Define o conteúdo principal da página.</li>
+          <li><code>&lt;img&gt;</code>: Insere imagens (`src` indica o caminho e `alt` a descrição acessível).</li>
+          <li><code>&lt;h1&gt;</code> e <code>&lt;h2&gt;</code>: Definem os títulos e a hierarquia da informação.</li>
+          <li><code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code>: Criam listas não ordenadas para organizar competências ou itens.</li>
+          <li><code>&lt;a&gt;</code>: Cria hiperlinks para conectar páginas web.</li>
+        </ul>
+      </div>
+
+      <div class="etapa-trajetoria">
+        <span class="passo">Passo 2</span>
+        <h3>Estilização e Layout (CSS3)</h3>
+        <p>Damos vida e forma aos elementos do HTML utilizando o conceito de <strong>Box Model</strong> e alinhamento:</p>
+        <ul>
+          <li><code>display: flex</code>: Alinha e centraliza elementos na tela com facilidade.</li>
+          <li><code>width</code>, <code>padding</code> e <code>margin</code>: Controlam a largura, o espaçamento interno e externo.</li>
+          <li><code>border-radius</code>: Arredonda bordas de cartões e transforma imagens em círculos (`50%`).</li>
+          <li><code>box-shadow</code>: Adiciona sombras para dar sensação de profundidade visual.</li>
+          <li><code>transition</code> e <code>:hover</code>: Adicionam interatividade e animações suaves ao passar o mouse.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bloco de Desafios Práticos -->
+    <section class="secao-desafios">
+      <h2>⚔️ Laboratório de Desafios Práticos</h2>
+      <p>Aplique o que aprendeu editando seus arquivos <code>index.html</code> e <code>style.css</code>:</p>
+
+      <div class="card-desafio nivel-facil">
+        <span class="tag-nivel">Nível 1 — Básico</span>
+        <h3>Personalização de Cores e Fontes</h3>
+        <p>Altere a cor do botão principal para Roxo(<code>.botao-contato</code>) e mude a cor de fundo da página (<code>body</code>) no arquivo CSS para combinar com seu estilo pessoal.</p>
+      </div>
+
+      <div class="card-desafio nivel-medio">
+        <span class="tag-nivel">Nível 2 — Intermediário</span>
+        <h3>Inclusão de Novos Elementos</h3>
+        <p>No <code>index.html</code>, adicione mais 2 competências na lista (<code>&lt;ul&gt;</code>) e inclua um link real para o seu perfil no LinkedIn, GitHub ou outra rede social na tag <code>&lt;a&gt;</code>.</p>
+      </div>
+
+      <div class="card-desafio nivel-dificil">
+        <span class="tag-nivel">Nível 3 — Avançado</span>
+        <h3>Efeitos Visuais e Animação</h3>
+        <p>No <code>style.css</code>, adicione a regra <code>.cartao:hover { transform: translateY(-8px); }</code> e adicione uma transição suave no cartão para criar o efeito de elevação dinâmica.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2d6bc8;
+  color: #333;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.menu-navegacao {
+  background-color: #007bff;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.menu-navegacao a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.menu-navegacao a:hover,
+.menu-navegacao a.ativo {
+  background-color: #0056b3;
+}
+
+/* CARTÃO DE PERFIL (INDEX.HTML) */
+.cartao {
+  background-color: #ffffff;
+  width: 320px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto {
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #007bff;
+}
+
+h1 {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.cargo {
+  font-size: 0.9rem;
+  color: #c21f86;
+  font-weight: 600;
+  margin-bottom: 15px;
+  background-color: #7dbc18;
+  border-radius: 40px;
+}
+
+.bio {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+h2 {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.habilidades {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.habilidades li {
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 3px;
+  text-decoration: none;
+}
+.habilidades li a {
+  text-decoration: none;
+  color: #28a745;
+  border-radius: 50px;
+
+}
+.botao-contato {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #7dbc18;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight:lighter;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.botao-contato:hover {
+  background-color: #9b18e1;
+
+}
+
+/* PÁGINA DE DESAFIOS (DESAFIOS.HTML) */
+.conteiner-desafios {
+  max-width: 800px;
+  width: 90%;
+}
+
+.conteiner-desafios h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* TRAJETÓRIA DOS COMANDOS */
+.secao-trajetoria {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.etapa-trajetoria {
+  border-left: 3px solid #007bff;
+  padding-left: 15px;
+  margin-top: 20px;
+}
+
+.passo {
+  background-color: #007bff;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.etapa-trajetoria h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.etapa-trajetoria p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.etapa-trajetoria ul {
+  margin-left: 20px;
+  font-size: 0.88rem;
+  color: #444;
+}
+
+.etapa-trajetoria code {
+  background-color: #e9ecef;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #d63384;
+  font-family: monospace;
+}
+
+/* CARDS DE DESAFIOS */
+.secao-desafios h2 {
+  margin-bottom: 10px;
+}
+
+.card-desafio {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #ccc;
+}
+
+.nivel-facil { border-left-color: #28a745; }
+.nivel-medio { border-left-color: #ffc107; }
+.nivel-dificil { border-left-color: #dc3545; }
+
+.tag-nivel {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.card-desafio h3 {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.card-desafio p {
+  font-size: 0.9rem;
+  color: #555;
+}

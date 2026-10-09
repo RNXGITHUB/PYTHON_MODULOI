@@ -1,0 +1,96 @@
+/* ESTILOS BÁSICOS DA PÁGINA */
+body {
+  font-family:'Courier New', Courier, monospace;
+  margin: 20px;
+  background-color: #fbf8f8;
+  color:aquamarine
+}
+
+header {
+  background-color: #aebe92;
+  color: rgb(225, 16, 16);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+nav {
+  margin: 15px 0;
+}
+
+.Titulo2{
+  font-size: 40px;;
+}
+nav a {
+  background-color: #1cc1c1;
+  color: rgb(175, 150, 150);
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+nav a:hover {
+  background-color: #778925;
+}
+
+/* TROCA DE TELAS VIA CSS (:target) */
+.tela {
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#tabela:target,
+#formulario:target {
+  display: block;
+}
+
+/* Exibe a Tabela por padrão ao abrir o site */
+body:not(:has(:target)) #tabela {
+  display: block;
+}
+
+/* TABELA */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 100px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #b65959;
+}
+
+/* FORMULÁRIO */
+.campo {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}

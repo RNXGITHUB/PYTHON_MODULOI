@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Aplicação CRUD - Em Construção</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: #f1f5f9; color: #334155; padding: 20px; }
+    
+    header {
+      background: #0284c7;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .grid { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+    
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 4px; }
+    input { width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0284c7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #0369a1; }
+
+    /* SQL Terminal */
+    .terminal {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: monospace;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 0.8rem;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; font-size: 0.85rem; }
+    th { background: #f8fafc; }
+
+    .btn-del {
+      background: #ef4444;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>⚙️ Minha Aplicação de Cadastro de Alunos</h1>
+    <p>Construa esta página seguindo as orientações no Painel do Desafio!</p>
+  </header>
+
+  <div class="grid">
+    
+    <!-- LADO ESQUERDO: FORMULÁRIO -->
+    <div class="card">
+      <h3>Novo Aluno</h3>
+      <form id="formAluno" style="margin-top: 15px;">
+        <input type="hidden" id="alunoId">
+
+        <div class="form-group">
+          <label>Nome Completo:</label>
+          <input type="text" id="nome" required placeholder="Digite o nome">
+        </div>
+
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input type="text" id="telefone" required placeholder="(81) 9....">
+        </div>
+
+        <div class="form-group">
+          <label>Cidade:</label>
+          <input type="text" id="cidade" required placeholder="Ex: Caruaru">
+        </div>
+
+        <button type="submit">Salvar Registro</button>
+      </form>
+
+      <div class="terminal">
+        <strong>SQL Terminal Output:</strong>
+        <div id="sqlOutput" style="margin-top: 5px; word-break: break-all;">Aguardando ação...</div>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO: TABELA -->
+    <div class="card">
+      <h3>Listagem de Alunos</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Cidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaCorpo">
+          <!-- TODO: A tabela deve ser preenchida aqui via JS -->
+          <tr>
+            <td colspan="5" style="text-align: center; color: #94a3b8;">
+              Sua tabela está em branco. Complete a Etapa 1 e 2 no script!
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT A SER DESENVOLVIDO PELOS ALUNOS -->
+  <script>
+    const CHAVE_BANCO = 'ete_alunos_db';
+
+    // =========================================================================
+    // ETAPA 1: LER DADOS DO LOCALSTORAGE
+    // =========================================================================
+    function obterAlunos() {
+      // ✏️ ESCREVA SEU CÓDIGO AQUI (Consulte a Etapa 1 do Painel)
+      return []; 
+    }
+
+    // =========================================================================
+    // ETAPA 2: CARREGAR A TABELA NA TELA
+    // =========================================================================
+    function carregarTabela() {
+      const tbody = document.getElementById('tabelaCorpo');
+      const alunos = obterAlunos();
+
+      // ✏️ ESCREVA SEU CÓDIGO AQUI (Consulte a Etapa 2 do Painel)
+    }
+
+    // =========================================================================
+    // ETAPA 3 & 5: INSERIR REGISTRO E EXIBIR SQL
+    // =========================================================================
+    document.getElementById('formAluno').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // ✏️ ESCREVA SEU CÓDIGO AQUI (Consulte a Etapa 3 e 5 do Painel)
+      
+      // Dica para renderizar a tabela novamente após salvar:
+      // carregarTabela();
+    });
+
+    // =========================================================================
+    // ETAPA 4: DELETAR REGISTRO
+    // =========================================================================
+    function deletarAluno(id) {
+      // ✏️ ESCREVA SEU CÓDIGO AQUI (Consulte a Etapa 4 do Painel)
+    }
+
+    // Inicializa a tabela
+    carregarTabela();
+  </script>
+</body>
+</html>

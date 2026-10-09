@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Desafio - ETE José Joaquim da Silva Filho</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #0f172a; color: #e2e8f0; padding: 20px; line-height: 1.6; }
+    
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid #334155;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+    header h1 { color: #38bdf8; font-size: 1.8rem; margin-bottom: 8px; }
+    header p { color: #94a3b8; font-size: 0.95rem; }
+
+    .progress-box {
+      background: #1e293b;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border: 1px solid #334155;
+    }
+    .progress-bar-bg {
+      background: #0f172a;
+      height: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-bar-fill {
+      background: #38bdf8;
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .steps-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
+
+    .step-card {
+      background: #1e293b;
+      border-left: 5px solid #64748b;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      transition: border-color 0.3s;
+    }
+    .step-card.completed { border-left-color: #22c55e; }
+
+    .step-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .step-title { font-size: 1.15rem; color: #f8fafc; font-weight: bold; }
+    .step-badge { background: #334155; color: #38bdf8; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; }
+
+    .step-desc { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 12px; }
+
+    .hint-box {
+      background: #0f172a;
+      border: 1px dashed #475569;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 10px 0;
+      font-size: 0.85rem;
+    }
+    .hint-title { color: #fbbf24; font-weight: bold; margin-bottom: 5px; }
+
+    pre {
+      background: #090d16;
+      color: #38bdf8;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: 'Consolas', monospace;
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    .check-container { margin-top: 15px; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.85rem; color: #22c55e; }
+    .check-container input { cursor: pointer; width: 18px; height: 18px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚀 Jornada do Desenvolvedor CRUD + SQL</h1>
+    <p>ETE José Joaquim da Silva Filho • Guia Passo a Passo para Construção da Aplicação</p>
+  </header>
+
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="progress-box">
+      <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem;">
+        <span>Seu Progresso no Desafio</span>
+        <span id="progressText">0% Concluído</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="steps-grid">
+
+      <!-- ETAPA 1 -->
+      <div class="step-card" id="card1">
+        <div class="step-header">
+          <span class="step-title">Etapa 1: Leitura de Dados (SELECT)</span>
+          <span class="step-badge">LocalStorage</span>
+        </div>
+        <p class="step-desc">
+          Abra o arquivo <code>minha_aplicacao.html</code>. Sua primeira tarefa é fazer a função <code>obterAlunos()</code> buscar os dados gravados no navegador sob a chave <code>'ete_alunos_db'</code>.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          Use <code>localStorage.getItem(CHAVE_BANCO)</code>. Lembre-se que os dados no LocalStorage são armazenados como texto, então você deve converter com <code>JSON.parse()</code>. Se não houver nada salvo, retorne um array vazio <code>[]</code>.
+<pre>
+function obterAlunos() {
+  const dados = localStorage.getItem(CHAVE_BANCO);
+  return dados ? JSON.parse(dados) : [];
+}
+</pre>
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card1', this.checked)"> Concluí a Etapa 1
+        </label>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div class="step-card" id="card2">
+        <div class="step-header">
+          <span class="step-title">Etapa 2: Renderização da Tabela (READ)</span>
+          <span class="step-badge">DOM & Loop</span>
+        </div>
+        <p class="step-desc">
+          Agora você precisa preencher o elemento <code>&lt;tbody id="tabelaCorpo"&gt;</code> dinamizando as linhas com os alunos retornados do <code>obterAlunos()</code>.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          Na função <code>carregarTabela()</code>, limpe o conteúdo atual com <code>tbody.innerHTML = ''</code> e percorra o array usando <code>.forEach()</code>:
+<pre>
+alunos.forEach(aluno => {
+  tbody.innerHTML += `
+    &lt;tr&gt;
+      &lt;td&gt;${aluno.id}&lt;/td&gt;
+      &lt;td&gt;${aluno.nome}&lt;/td&gt;
+      &lt;td&gt;${aluno.telefone}&lt;/td&gt;
+      &lt;td&gt;${aluno.cidade}&lt;/td&gt;
+      &lt;td&gt;&lt;button onclick="deletar(${aluno.id})"&gt;Excluir&lt;/button&gt;&lt;/td&gt;
+    &lt;/tr&gt;`;
+});
+</pre>
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card2', this.checked)"> Concluí a Etapa 2
+        </label>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div class="step-card" id="card3">
+        <div class="step-header">
+          <span class="step-title">Etapa 3: Inserção de Registros (INSERT INTO)</span>
+          <span class="step-badge">Formulário</span>
+        </div>
+        <p class="step-desc">
+          Capture o evento de <code>submit</code> do formulário para salvar um novo aluno. Crie uma ID incremental para cada novo cadastro.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          Para calcular a ID: <code>const novoId = alunos.length > 0 ? alunos[alunos.length - 1].id + 1 : 1;</code><br>
+          Crie o objeto <code>const novoAluno = { id: novoId, nome, telefone, cidade };</code>, adicione com <code>alunos.push(novoAluno)</code> e salve usando <code>localStorage.setItem()</code> com <code>JSON.stringify()</code>.
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card3', this.checked)"> Concluí a Etapa 3
+        </label>
+      </div>
+
+      <!-- ETAPA 4 -->
+      <div class="step-card" id="card4">
+        <div class="step-header">
+          <span class="step-title">Etapa 4: Exclusão de Registros (DELETE)</span>
+          <span class="step-badge">Array Filter</span>
+        </div>
+        <p class="step-desc">
+          Implemente a função <code>deletarAluno(id)</code> para remover um registro do LocalStorage quando o botão for clicado.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          Use o método <code>.filter()</code> para gerar um novo array mantendo apenas os elementos onde a ID for **diferente** da ID passada como parâmetro:
+<pre>
+function deletarAluno(id) {
+  let alunos = obterAlunos();
+  alunos = alunos.filter(aluno => aluno.id !== id);
+  salvarAlunos(alunos);
+  carregarTabela();
+}
+</pre>
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card4', this.checked)"> Concluí a Etapa 4
+        </label>
+      </div>
+
+      <!-- ETAPA 5 -->
+      <div class="step-card" id="card5">
+        <div class="step-header">
+          <span class="step-title">Etapa 5: Terminal de Monitoramento SQL</span>
+          <span class="step-badge">Visualização</span>
+        </div>
+        <p class="step-desc">
+          Cada vez que uma ação (INSERT ou DELETE) for executada no JavaScript, exiba a query equivalente na tag <code>&lt;div id="sqlOutput"&gt;</code>.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          No evento de INSERT:<br>
+          <code>document.getElementById('sqlOutput').innerText = `INSERT INTO alunos VALUES (${novoId}, '${nome}', '${cidade}');`;</code>
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card5', this.checked)"> Concluí a Etapa 5
+        </label>
+      </div>
+
+      <!-- ETAPA 6 -->
+      <div class="step-card" id="card6">
+        <div class="step-header">
+          <span class="step-title">Etapa 6 (Desafio Extra): Edição/UPDATE</span>
+          <span class="step-badge">Avançado</span>
+        </div>
+        <p class="step-desc">
+          Adicione um botão "Editar" na tabela. Ao clicar, os dados devem voltar ao formulário. Caso o campo ID esteja preenchido no formulário, atualize o registro existente ao invés de criar um novo.
+        </p>
+        <div class="hint-box">
+          <div class="hint-title">💡 Dica de Implementação:</div>
+          Use o comando SQL correspondente para simulação:<br>
+          <code>UPDATE alunos SET nome = '${nome}' WHERE id =${id};</code>
+        </div>
+        <label class="check-container">
+          <input type="checkbox" onchange="atualizarProgresso('card6', this.checked)"> Concluí a Etapa 6
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let concluidos = 0;
+    const totalEtapas = 6;
+
+    function atualizarProgresso(cardId, isChecked) {
+      const card = document.getElementById(cardId);
+      if (isChecked) {
+        card.classList.add('completed');
+        concluidos++;
+      } else {
+        card.classList.remove('completed');
+        concluidos--;
+      }
+
+      const pct = Math.round((concluidos / totalEtapas) * 100);
+      document.getElementById('progressBar').style.width = pct + '%';
+      document.getElementById('progressText').textContent = pct + '% Concluído';
+    }
+  </script>
+</body>
+</html>
